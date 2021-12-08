@@ -1,0 +1,21 @@
+- hosts: web
+  tasks:
+    - name: remove shell scripts
+      command: rm *.sh -y
+    - name: stop mysql
+      service:
+        name: mysql
+        state: stopped
+    - name: stop httpd
+      service:
+        name: httpd
+        state: stopped
+    - name: uninstall httpd
+      yum:
+        name: httpd
+        state: absent
+    - name: uninstall mysql package
+      yum:
+        name: mysql
+        state: absent
+
