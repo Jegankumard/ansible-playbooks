@@ -1,0 +1,6 @@
+- hosts: target
+  tasks:
+  - name: Ansible copy files from a directory to remote server
+    copy:
+      src:/home/ec2-user/copy-project/file1.txt
+      dest:/home/ec2-user
