@@ -1,0 +1,28 @@
+- hosts: web
+  tasks:
+    - name: Execute date command
+      command: date
+    - name: copy shell script
+      copy:
+        src: /home/ec2-user/copy-project/test/*.sh
+        dest: /home/ec2-user/
+    - name: Execute shell scripts
+      script: test1.sh
+    - name: Execute shell scripts
+      command: sh /home/ec2-user/test2.sh
+    - name: install httpd
+      yum:
+        name: httpd
+        state: present
+    - name: install mysql package
+      yum:
+        name: mysql
+        state: present
+    - name: start mysql
+      service:
+        name: mysql
+        state: started
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
