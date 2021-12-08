@@ -1,4 +1,4 @@
-- hosts: target
+- hosts: web
   tasks:
   - name: Ansible copy files from a directory to remote server
     copy:
